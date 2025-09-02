@@ -8,5 +8,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('category', CategoryController::class, ['except' => ['show', 'edit']]);
-Route::resource('supplier', SupplierController::class, ['except' => ['show', 'create', 'edit']]);
+Route::resource('/category', CategoryController::class, ['except' => ['show', 'edit']]);
+Route::resource('/supplier', SupplierController::class, ['except' => ['show', 'create', 'edit']]);

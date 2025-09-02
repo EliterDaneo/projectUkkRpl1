@@ -63,7 +63,7 @@ class SupplierController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'name' => 'required|min:3|max:100|string',
+            'name' => 'required|min:3|max:100|string|unique:suppliers,name,' . $id,
             'address' => 'required|min:3|max:100|string',
             'phone' => 'required|min:3|max:100|string',
         ]);

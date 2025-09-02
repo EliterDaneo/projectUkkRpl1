@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use League\Uri\Contracts\UserInfoInterface;
 
 class Product extends Model
 {
@@ -15,5 +16,9 @@ class Product extends Model
     public function supplier()
     {
         return $this->belongsTo(Supplier::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(UserInfoInterface::class);
     }
 }

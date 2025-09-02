@@ -20,7 +20,8 @@
                 {{ session('hapus') }}
             </div>
         @endif
-        <a href="{{ route('category.create') }}" class="btn btn-primary mb-3"> Tambah Kategori</a>
+        <a href="{{ route('category.create') }}" class="btn btn-outline-primary mb-3"><i class="bi bi-plus"></i> Tambah
+            Kategori</a>
         <div class="card shadow-sm">
             <div class="card-body">
                 <table class="table">
@@ -38,9 +39,9 @@
                                 <td>{{ $d->name }}</td>
                                 <td>
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal-{{ $d->id }}">
-                                        Edit
+                                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal-{{ $d->id }}" title="Edit"><i
+                                            class="bi bi-pencil"></i>
                                     </button>
 
                                     <!-- Modal -->
@@ -76,9 +77,9 @@
                                     </div>
 
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#hapus-{{ $d->id }}">
-                                        Hapus
+                                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                                        data-bs-target="#hapus-{{ $d->id }}" title="Hapus"><i
+                                            class="bi bi-trash"></i>
                                     </button>
 
                                     <!-- Modal -->
