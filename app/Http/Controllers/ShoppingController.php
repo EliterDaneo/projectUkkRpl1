@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\Shopping;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class ShoppingController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = Product::with(['category', 'user', 'supplier'])->get();
-        return view("product.index", compact("data"));
+        //
     }
 
     /**
@@ -35,7 +34,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Shopping $shopping)
     {
         //
     }
@@ -43,7 +42,7 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Shopping $shopping)
     {
         //
     }
@@ -51,7 +50,7 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Shopping $shopping)
     {
         //
     }
@@ -59,7 +58,7 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Shopping $shopping)
     {
         //
     }
