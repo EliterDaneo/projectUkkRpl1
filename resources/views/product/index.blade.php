@@ -43,6 +43,11 @@
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{ $d->name }}</td>
+                                <td>{{ $d->category?->name }}</td>
+                                <td>{{ $d->supplier?->name }}</td>
+                                <td>{{ $d->price }}</td>
+                                <td>{{ $d->stock }}</td>
+                                <td>{{ $d->user?->name }}</td>
                                 <td>
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
@@ -67,8 +72,9 @@
                                                         <div class="mb-3">
                                                             <label for="exampleFormControlInput1" class="form-label">Nama
                                                                 Kategori</label>
-                                                            <input type="text" name="name" value="{{ $d->name }}"
-                                                                class="form-control" id="exampleFormControlInput1"
+                                                            <input type="text" name="name"
+                                                                value="{{ $d->name }}" class="form-control"
+                                                                id="exampleFormControlInput1"
                                                                 placeholder="name@example.com">
                                                         </div>
                                                     </div>
