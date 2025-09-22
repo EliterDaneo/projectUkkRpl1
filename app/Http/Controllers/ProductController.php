@@ -12,8 +12,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data = Product::with(['category', 'user', 'supplier'])->get();
-        return view("product.index", compact("data"));
+        $data = Product::with(['category', 'supplier', 'user'])->latest()->paginate(10);
+
+        return view('product.index', compact('data'));
     }
 
     /**

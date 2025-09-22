@@ -19,6 +19,6 @@ class Product extends Model
     }
     public function user()
     {
-        return $this->belongsTo(UserInfoInterface::class);
+        return $this->belongsTo(User::class);
     }
 }
