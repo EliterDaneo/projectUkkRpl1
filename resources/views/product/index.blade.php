@@ -22,14 +22,19 @@
         @endif
         <a href="{{ route('product.create') }}" class="btn btn-outline-primary mb-3"><i class="bi bi-plus"></i> Tambah
             Produk</a>
-            
+
         <div class="card shadow-sm">
             <div class="card-body">
                 <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">No</th>
-                            <th scope="col">Nama</th>
+                            <th scope="col">Nama Produk</th>
+                            <th scope="col">Kategori Produk</th>
+                            <th scope="col">Nama Supplier</th>
+                            <th scope="col">Harga Satuan</th>
+                            <th scope="col">Stok</th>
+                            <th scope="col">Penginput</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
