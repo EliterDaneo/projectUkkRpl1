@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
+use App\Models\Supplier;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -22,7 +25,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('product.create');
+        $kategoris = Category::all();
+        $suppliers = Supplier::all();
+        return view('product.create', compact('kategoris', 'suppliers'));
     }
 
     /**
@@ -30,7 +35,27 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'a' => 'required|numeric|exists:categories,id',
+            'b' => 'required|numeric|exists:suppliers,id',
+            'c' => 'required|string|min:3',
+            'd' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
+            'e' => 'required|numeric',
+            'f' => 'required|numeric',
+            'g' => 'required|string|min:3'
+        ]);
+
+        Product::create([
+            'category_id' => $request->a,
+            'supplier_id' => $request->b,
+            'name' => $request->c,
+            'price' => $request->e,
+            'stock' => $request->f,
+            'description' => $request->g,
+            'slug' => Str::slug($request->c, '-'),
+        ]);
+
+        return to_route('product.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
