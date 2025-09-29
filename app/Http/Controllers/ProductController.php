@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Supplier;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -52,6 +53,7 @@ class ProductController extends Controller
             'price' => $request->e,
             'stock' => $request->f,
             'description' => $request->g,
+            'user_id' => Auth::user()->id,
             'slug' => Str::slug($request->c, '-'),
         ]);
 

@@ -51,7 +51,7 @@
                         <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">
                             <i class="bi bi-person-circle"></i>
-                            Buat Akun
+                            Login
                         </button>
 
                         <!-- Modal -->
