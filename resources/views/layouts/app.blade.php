@@ -28,7 +28,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
-                    @auth(Auth::check() && Auth::user()->role == 'admin')
+                    @if (Auth::check() && Auth::user()->role == 'admin')
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,12 +40,18 @@
                                 <li><a class="dropdown-item" href="{{ route('product.index') }}">Supplier</a></li>
                             </ul>
                         </li>
-                    @endauth
+                    @endif
                 </ul>
                 <div class="d-flex">
                     @if (Auth::check())
                         <a class="btn btn-outline-success" href="#"><i class="bi bi-speedometer2"></i>
                             Dashboard</a>
+
+                        <form action="{{ route('logout') }}" method="POST" class="ms-2">
+                            @csrf
+                            <button type="submit" class="btn btn-outline-danger"><i class="bi bi-box-arrow-right"></i>
+                                Logout</button>
+                        </form>
                     @else
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
@@ -69,18 +75,20 @@
                                             @csrf
                                             <div class="mb-3">
                                                 <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                                <input type="email" name="email" class="form-control" id="exampleInputEmail1"
-                                                    aria-describedby="emailHelp">
+                                                <input type="email" name="email" class="form-control"
+                                                    id="exampleInputEmail1" aria-describedby="emailHelp">
                                                 <div id="emailHelp" class="form-text">We'll never share your email with
                                                     anyone else.</div>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                                                <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                                                <input type="password" name="password" class="form-control"
+                                                    id="exampleInputPassword1">
                                             </div>
                                             <div class="mb-3 form-check">
                                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                                <label class="form-check-label" for="exampleCheck1">Check me
+                                                    out</label>
                                             </div>
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                         </form>
