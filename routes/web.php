@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
@@ -9,6 +10,8 @@ Route::middleware('guest')->group(function () {
     Route::get('/', function () {
         return view('welcome');
     })->name('login');
+    //route untuk login
+    Route::post('/proses-login', [AuthController::class, 'login'])->name('proses-login');
 });
 
 Route::middleware('auth')->group(function () {
