@@ -46,7 +46,7 @@ class ProductController extends Controller
             'g' => 'required|string|min:3'
         ]);
 
-        if($request->hasFile('d')){
+        if ($request->hasFile('d')) {
             $file = $request->file('d');
             $filename = time() . '_' . $file->getClientOriginalName();
             $file->move(public_path('images'), $filename);
@@ -62,6 +62,7 @@ class ProductController extends Controller
             'description' => $request->g,
             'user_id' => Auth::user()->id,
             'slug' => Str::slug($request->c, '-'),
+            'image' => $filename
         ]);
 
         return to_route('product.index')->with('success', 'Data berhasil ditambahkan');
