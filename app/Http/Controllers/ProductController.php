@@ -40,11 +40,18 @@ class ProductController extends Controller
             'a' => 'required|numeric|exists:categories,id',
             'b' => 'required|numeric|exists:suppliers,id',
             'c' => 'required|string|min:3',
-            'd' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
+            'd' => 'required|image|mimes:jpeg,jpg,png|max:2048',
             'e' => 'required|numeric',
             'f' => 'required|numeric',
             'g' => 'required|string|min:3'
         ]);
+
+        if($request->hasFile('d')){
+            $file = $request->file('d');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('images'), $filename);
+            $request->merge(['d' => $filename]);
+        }
 
         Product::create([
             'category_id' => $request->a,

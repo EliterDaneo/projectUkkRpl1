@@ -6,7 +6,7 @@
             Tambah Produk
         </div>
         <ul class="card-body">
-            <form action="{{ route('product.store') }}" method="POST">
+            <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-md-6">
